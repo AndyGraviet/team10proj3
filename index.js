@@ -20,6 +20,24 @@ app.get("/", (req, res) => res.render("index"));
 app.get("/indicators.ejs", (req, res) => res.render("indicators"));
 app.get("/resources.ejs", (req, res) => res.render("resources"));
 
+app.get("/indRecord", (req, res) => {
+    knex
+    .select()
+    .from("people").where("last_name", req.query.last_name.toUpperCase())
+    .then((people) => {
+        if ((people.length == 0)) {
+            res.render("noResults");
+          } 
+        else {
+            res.render("editRecord", { people: people });
+          }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+});
+
 app.get("/stats.ejs", (req, res) => {
   knex
     .select()
@@ -36,13 +54,11 @@ app.get("/stats.ejs", (req, res) => {
 
 app.get("/findRecord", (req, res) => {
   res.render("findRecord");
-  // add a "we cant find this page" error and than ask if they want to de redirected        //works!
-  // 404 error with H1 tag "can't find record!" button below that says
 });
 
 app.get("/editRecord", (req, res) => {
   knex
-    .select("people_id", "last_name", "first_name")
+    .select()
     .from("people")
     .where("last_name", req.query.last_name.toUpperCase())
     .then((people) => {
