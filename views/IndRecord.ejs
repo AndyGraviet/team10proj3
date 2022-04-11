@@ -85,24 +85,55 @@
               }
             </style>
             <div id="edit">
-                <form>    
                     <fieldset>
                         <legend>Search Results</legend>
                             <br>
-                            <label for="lastName"></label>
-                            <br>
-                            <form action="/addRecord" method="GET" >
-                                <button type="submit" class="get-started-btn custombtn">Add Record</button>
-                            </form>
-                            <form action="/addRecord" method="GET" >
-                                <button type="submit" class="get-started-btn custombtn">Edit Record</button>
-                            </form>
-                            <form action="/addRecord" method="GET" >
-                                <button type="submit" class="get-started-btn custombtn">Return to All Records</button>
-                            </form>
-                            <br><br>
+                            <!-- <label for="lastName"></label> -->
+                            <!-- display the searched data here -->
+                            <table class="singleRec">
+                              <thead>
+                                  <tr>
+                                      <th>Date Missing</th>
+                                      <th>Last Name</th>
+                                      <th>First Name</th>
+                                      <th>Age at Missing</th>
+                                      <th>City</th>
+                                      <th>State</th>
+                                      <th>Gender</th>
+                                      <th>Race</th>
+                                      
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <!-- show all people with this lastname -->
+                                  <% for (let i = 0; i < people.length; i++) { %>
+                                      <tr>
+                                          <input type="hidden" value="<%= people[i].people_id %>" name="people_id"/>
+                                          <td><%= people[i].date_missing %></td>
+                                          <td><%= people[i].last_name %></td>
+                                          <td><%= people[i].first_name %></td>
+                                          <td><%= people[i].age_at_missing %></td>
+                                          <td><%= people[i].city %></td>
+                                          <td><%= people[i].state %></td>
+                                          <td><%= people[i].gender %></td>
+                                          <td><%= people[i].race %></td>
+                                          <br><br>
+                                      </tr>
+                                      <form action="/editRecord" method="GET">
+                                        <input type="hidden" value="<%= people[i].last_name %>" name="last_name"/>
+                                        <button type="submit" class="get-started-btn custombtn2">Edit Record</button>
+                                      </form>
+                                      <form action="/deleteRecord">
+                                        <button type="submit" class="get-started-btn custombtn2">Delete Record</button>
+                                      </form>
+                                  <% } %>
+                              </tbody>
+                          </table>
+                            <br><br><br>
                     </fieldset>
-                </form>
+                <form action="/stats.ejs" method="GET" >  
+                  <button type="submit" class="get-started-btn custombtn">Return to All Records</button>
+              </form>
     <!--ANDY CODE ENDS HERE-->
             </div>
     
