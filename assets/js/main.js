@@ -1,9 +1,8 @@
-/**
-* Template Name: Gp - v4.7.0
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+// This is Project 3 for Team 10 including Andrew Graviet, Emma Antonucci, Evan Gregory, Holly Lambert, Justin Brown, Maryn Hansen, Styles Weiler
+// This project implements CRUD on a website about Child Trafficking
+// IS 303 
+// Section 004
+
 (function() {
   "use strict";
 

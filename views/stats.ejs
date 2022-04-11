@@ -1,10 +1,17 @@
+<!-- // This is Project 3 for Team 10 including Andrew Graviet, Emma Antonucci, Evan Gregory, Holly Lambert, Justin Brown, Maryn Hansen, Styles Weiler
+// This project implements CRUD on a website about Child Trafficking
+// IS 303 
+// Section 004
+
+Here is the stats page -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+<!-- Title -->
   <title>Imhumane Trafficking</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -28,12 +35,6 @@
   <!-- Template Main CSS File -->
   <link href="/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Gp - v4.7.0
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -43,7 +44,7 @@
     <div class="container d-flex align-items-center justify-content-lg-between">
 
       <h1 class="logo me-auto me-lg-0"><a href="/">T10<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
+      
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -52,6 +53,7 @@
           <li><a class="nav-link scrollto" href="/">About</a></li>
           <li class="dropdown active"><a href="#"><span>Take Action</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
+              <!-- links to the three pages available for users -->
               <li><a href="indicators.ejs">Indicators</a></li>
               <li><a href="stats.ejs">Statistics</a></li>
               <li><a href="resources.ejs">Resources</a></li>
@@ -112,6 +114,7 @@
           <h2>Utah</h2>
           <p>Human Trafficking Victims</p>
         </div>
+        <!-- inline CSS styling  -->
         <style>
           .mystyle
           {
@@ -128,7 +131,7 @@
             </form>
         <div id="data">
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-             <!--CODE HERE-->
+             <!--creation of table with the column headers of the following items: -->
              <table>
                 <thead>
                     <tr>
@@ -143,6 +146,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <!-- encoded JS programing within HTML to create a for loop for the length of people found on the table which brings in their values to populate the table -->
                     <% for (let i = 0; i < people.length; i++) { %>
                         <tr><form action="/deleteRecord" method="POST">
                             <input type="hidden" value="<%= people[i].people_id %>" name="people_id"/>
@@ -154,17 +158,17 @@
                             <td><%= people[i].state %></td>
                             <td><%= people[i].gender %></td>
                             <td><%= people[i].race %></td>
+                            <!-- submit button for deleting a record -->
                             <td><button type="submit" class="get-started-btn custombtn2">Delete Record</button></td>
                         </form></tr>
                     <% } %>
                 </tbody>
             </table>
 
-             <!--ANDY CODE ENDS HERE-->
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -192,13 +196,13 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>stylespoopiehead@gmail.com</p>
+                <p>byu@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1-styles-weiler</p>
+                <p>+1-800-go-byu</p>
               </div>
 
             </div>
@@ -247,12 +251,12 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>MH<span>.</span></h3>
+              <h3>T10<span>.</span></h3>
               <p>
                 1 Campus Dr <br>
                 Provo, UT 84604, USA<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <strong>Email:</strong> byu@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -288,7 +292,7 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p></p>
+            <p>Receive updates on those who have been found and the continued effort to find those who are lost.</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
@@ -301,12 +305,12 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>MH</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>T10</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
 
-  <!-- <div id="preloader"></div> -->
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
