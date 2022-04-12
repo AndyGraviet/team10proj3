@@ -14,10 +14,7 @@ app.get("/indicators.ejs", (req, res) => res.render("indicators"));
 app.get("/resources.ejs", (req, res) => res.render("resources"));
 
 app.get("/indRecord", (req, res) => {
-    knex
-    .select()
-    .from("people").where("last_name", req.query.last_name.toUpperCase())
-    .then((people) => {
+    knex.select().from("people").where("last_name", req.query.last_name.toUpperCase()).then((people) => {
         if ((people.length == 0)) {
             res.render("noResults");
           } 
@@ -32,10 +29,7 @@ app.get("/indRecord", (req, res) => {
 });
 
 app.get("/stats.ejs", (req, res) => {
-  knex
-    .select()
-    .from("people")
-    .then((people) => {
+  knex.select().from("people").then((people) => {
       res.render("stats", { people: people }); //works!
     })
     .catch((err) => {
