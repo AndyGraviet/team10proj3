@@ -81,7 +81,7 @@ app.get("/indRecord", (req, res) => {
           res.render("noResults");
         } 
       else {
-          res.render("editRecord", { people : people });
+          res.render("IndRecord", { people : people });
         }
   })
   .catch((err) => {
