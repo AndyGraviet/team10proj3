@@ -13,21 +13,6 @@ app.get("/", (req, res) => res.render("index"));
 app.get("/indicators.ejs", (req, res) => res.render("indicators"));
 app.get("/resources.ejs", (req, res) => res.render("resources"));
 
-app.get("/indRecord", (req, res) => {
-    knex.select().from("people").where("last_name", req.query.last_name.toUpperCase()).then((people) => {
-        if (people.length == 0) {
-            res.render("noResults");
-          } 
-        else {
-            res.render("editRecord", { people : people });
-          }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-});
-
 app.get("/stats.ejs", (req, res) => {
   knex.select().from("people").then((people) => {
       res.render("stats", { people : people }); //works!
@@ -52,7 +37,7 @@ app.get("/editRecord", (req, res) => {
       if ((people.length == 0)) {
         res.render("noResults");
       } else {
-        res.render("editRecord", { people : people });
+        res.render("editRecord", { people: people });
       }
     });
 });
@@ -76,6 +61,21 @@ app.post("/addRecord", (req, res) => {
     .then((people) => {
       res.redirect("/stats.ejs");
     });
+});
+
+app.get("/indRecord", (req, res) => {
+  knex.select().from("people").where("last_name", req.query.last_name.toUpperCase()).then((people) => {
+      if (people.length == 0) {
+          res.render("noResults");
+        } 
+      else {
+          res.render("indRecord", { people : people });
+        }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({ err });
+  });
 });
 
 app.post("/deleteRecord", (req, res) => {
