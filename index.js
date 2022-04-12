@@ -19,7 +19,7 @@ app.get("/indRecord", (req, res) => {
             res.render("noResults");
           } 
         else {
-            res.render("editRecord", { people: people });
+            res.render("indRecord", { people: people });
           }
     })
     .catch((err) => {
