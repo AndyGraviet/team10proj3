@@ -3,18 +3,11 @@ let app = express();
 let path = require("path");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/assets")));
+const port = process.env.PORT || 3001;
+const knex = require(path.join(__dirname + '/knex/knex.js'));
+
 app.set("view engine", "ejs");
 
-const knex = require("knex")({
-  client: "pg",
-  connection: {
-    host: "localhost",
-    user: "postgres",
-    password: "admin",
-    database: "proj3",
-    port: "5432",
-  },
-});
 //setup stuff done
 app.get("/", (req, res) => res.render("index"));
 app.get("/indicators.ejs", (req, res) => res.render("indicators"));
@@ -116,4 +109,4 @@ app.post("/editRecord", (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log("SERVER RUNNING"));
+app.listen(port, () => console.log("SERVER RUNNING"));
