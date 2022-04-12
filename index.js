@@ -15,11 +15,11 @@ app.get("/resources.ejs", (req, res) => res.render("resources"));
 
 app.get("/indRecord", (req, res) => {
     knex.select().from("people").where("last_name", req.query.last_name.toUpperCase()).then((people) => {
-        if ((people.length == 0)) {
+        if (people.length == 0) {
             res.render("noResults");
           } 
         else {
-            res.render("indRecord", { people: people });
+            res.render("indRecord", { people : people });
           }
     })
     .catch((err) => {
@@ -30,7 +30,7 @@ app.get("/indRecord", (req, res) => {
 
 app.get("/stats.ejs", (req, res) => {
   knex.select().from("people").then((people) => {
-      res.render("stats", { people: people }); //works!
+      res.render("stats", { people : people }); //works!
     })
     .catch((err) => {
       console.log(err);
@@ -52,7 +52,7 @@ app.get("/editRecord", (req, res) => {
       if ((people.length == 0)) {
         res.render("noResults");
       } else {
-        res.render("editRecord", { people: people });
+        res.render("editRecord", { people : people });
       }
     });
 });
